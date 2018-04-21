@@ -7,34 +7,34 @@ yesterDay = yesterDay.getFullYear() + "-" + (yesterDay.getMonth() + 1) + "-" + y
 var num = GetQueryString("id") - 1;
 switch (num) {
     case 0:
-        townRate();
+        // townRate();
         break;
     case 1:
-        chinaTownNumber();
+        // chinaTownNumber();
         break;
     case 2:
-        felling();
+        // felling();
         break;
     case 3:
-        economyIndustry();
+        // economyIndustry();
         break;
     case 4:
-        scale();
+        // scale();
         break;
     case 5:
-        pmData();
+        // pmData();
         break;
     case 6:
-        facility();
+        // facility();
         break;
     case 7:
-        getTownViewDistribute();
+        // getTownViewDistribute();
         break;
     case 8:
-        transportationAccess();
+        // transportationAccess();
         break;
     case 9:
-        invest_contrast();
+        // invest_contrast();
         break;
     case 10:
         getHotWordsLeft(), $("#hot-words-right").hide(), $(".hot-words-content-left").css({left: "250px"});
