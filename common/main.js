@@ -1,7 +1,7 @@
 function getStatus(e) {
     return 10020 == e.code && popWin.showWin("340", "390", "您的操作过于频繁", "validate.html"), $(".loading-animation").hide(), !1
 }
-$(".container").append("<div id='user-login' class='reveal-modal'></div>"), $(".container").append("<div id='user-register' class='reveal-modal'></div>"), $(".container").append("<div id='user-login-out' class='reveal-modal'></div>"), $(".container").append("<div id='user-validate' class='reveal-modal'></div>"), $("head").append("<meta name='fragment' content='!'>"), $("head").append("<link rel='stylesheet' href='css/reveal.css'>"), $("head").append("<link rel='shortcut icon' href='http://oawjg6eb7.bkt.clouddn.com/images/website-logo-2.png'>"), window.requestUrl = "service/towns/", void 0 == $.cookie("token") ? ($(".user-register-btn").show(), $(".user-login-btn").show()) : ($(".index-header .header-right span").hide(), $(".index-header .header-right ").append("<div class='user-personal-btn'>" + $.cookie("nickname").replace(/\"/g, "") + "</span>"), $(".index-header .header-right ").append("<div class='logo-out'><div class='first'></div><div class='second' style='display:none'></div><span class='user-loginOut-btn'>注销</span></div>"), $(".index-header .header-right ol li:nth-child(3)").hide(), $(".index-header .header-right ol li:nth-child(4)").hide()), window.globalNoData = "<div style='text-align:center'><img class='global-no-data' src='http://oawjg6eb7.bkt.clouddn.com/images/global-no-data-2.png'></div>", $(".header-right img").bind("click", function () {
+$(".container").append("<div id='user-login' class='reveal-modal'></div>"), $(".container").append("<div id='user-register' class='reveal-modal'></div>"), $(".container").append("<div id='user-login-out' class='reveal-modal'></div>"), $(".container").append("<div id='user-validate' class='reveal-modal'></div>"), $("head").append("<meta name='fragment' content='!'>"), $("head").append("<link rel='stylesheet' href='css/reveal.css'>"), $("head").append("<link rel='shortcut icon' href='http://oawjg6eb7.bkt.clouddn.com/images/website-logo-2.png'>"), window.requestUrl = "service/towns/", void 0 == $.cookie("token") ? ($(".user-register-btn").show(), $(".user-login-btn").show()) : ($(".index-header .header-right span").hide(), $(".index-header .header-right ").append("<div class='user-personal-btn'>" + $.cookie("nickname").replace(/\"/g, "") + "</span>"), $(".index-header .header-right ").append("<div class='logo-out'><div class='first'></div><div class='second' style='display:none'></div><span class='user-loginOut-btn'>注销</span></div>"), $(".index-header .header-right ol li:nth-child(3)").hide(), $(".index-header .header-right ol li:nth-child(4)").hide()), window.globalNoData = "<div style='center'><img class='global-no-data' src='http://oawjg6eb7.bkt.clouddn.com/images/global-no-data-2.png'></div>", $(".header-right img").bind("click", function () {
     var e = decodeURI($(".header-right input").val().trim());
     return "" != e && void(window.location.href = "/search?name=" + e)
 }), $(".header-right input").bind("keyup", function (e) {
@@ -49,10 +49,10 @@ $(".footer").html(footer), $(window).scroll(function () {
         window.location.reload()
     })
 });
-//var _paq = _paq || [];
-//_paq.push(["trackPageView"]), _paq.push(["enableLinkTracking"]), function () {
-//    var e = "//51towns.iask.in:889/";
-//    _paq.push(["setTrackerUrl", e + "piwik.php"]), _paq.push(["setSiteId", "2"]);
-//    var i = document, o = i.createElement("script"), t = i.getElementsByTagName("script")[0];
-//    o.type = "text/javascript", o.async = !0, o.defer = !0, o.src = e + "piwik.js", t.parentNode.insertBefore(o, t)
-//}();
+var _paq = _paq || [];
+_paq.push(["trackPageView"]), _paq.push(["enableLinkTracking"]), function () {
+    var e = "//51towns.iask.in:889/";
+    _paq.push(["setTrackerUrl", e + "piwik.php"]), _paq.push(["setSiteId", "2"]);
+    var i = document, o = i.createElement("script"), t = i.getElementsByTagName("script")[0];
+    o.type = "text/javascript", o.async = !0, o.defer = !0, o.src = e + "piwik.js", t.parentNode.insertBefore(o, t)
+}();
