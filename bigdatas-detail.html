@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>碾子山大数据展示平台</title>
+	<meta content="小镇排名、小镇数量、服务设施、交通可达、经济" name="Keywords">
+	<meta name="description" content="特色小镇网大数据，选取了碾子山特殊旅游数据">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<link rel="stylesheet" href="assets/common.css">
+	<link rel="stylesheet" href="assets/style.css">
+	<link rel="stylesheet" href="assets/bigdatas-detail.css"><meta name="fragment" content="!">
+	<link rel="stylesheet" href="assets/reveal.css">
+	<link rel="shortcut icon" href="http://oawjg6eb7.bkt.clouddn.com/images/website-logo-2.png">
+</head>
+<body>
+	<div class="container">
+		<div class="index-header">
+			<div class="top-header">
+				<div class="header-logo">
+					<img src="assets/website-logo-white.png" width="71" height="55">
+				</div>
+				<div class="header-right header-right-white">
+					<ol>
+					  <li>
+					  <div class="first first-white"></div>
+					  <div class="second"></div>
+					  <p>搜索</p>
+					  <div class="header-right-search"><input placeholder="请输入要搜索的关键字" type="text"> <img src="assets/header-search.png"></div>
+					  </li>
+					  <li>
+					    <div class="first first-white"></div>
+					    <div class="second"></div>
+					    <p>公众号</p>
+					    <div class="header-right-weixin">
+					    <img src="assets/footer-scan-weixin.png">
+					    <b>小镇公众号</b>
+					    </div>
+					    </li>
+					    <li class="user-login-btn"><div class="first first-white"></div><div class="second"></div><p>登录</p></li>
+					    <li class="user-register-btn">
+					      <div class="first first-white"></div>
+					      <div class="second"></div>
+					      <p>注册</p>
+					    </li>
+					    </ol>
+					</div>
+			</div>
+		</div>
+		<div class="big-data-detail">
+		  <ul class="content-left">
+		    <li style="margin-top:5px;">景点分布</li>
+		    <li>舆情</li>
+		    <li>旅游热点排行</li>
+		    <li>景点配套</li>
+		    <li>交通</li>
+		    <li>投资进度</li>
+		    <li>招投标</li>
+		    <li>餐饮娱乐项目</li>
+		    <li>数据检索汇总</li>
+		  </ul>
+		  <div class="content-right">
+		    <ul>
+		      <li id="global-town-number" style="display: none;">
+			      <iframe src="assets/global_world_chart.html" scrolling="no" frameborder="0"></iframe>
+			      <div id="town-rate"></div>
+			      <div>
+		         <div id="run-model-left" class="chart-tab chart"></div>
+		       </div>
+		      </li>
+
+		      <li style="display: none;">
+		        <h4>本地舆情</h4>
+		        <div id="province-towns-amount" class="chart chart-tab"></div>
+		        <div class="tab-change province-towns-amount-tab">
+		          <span>特色小城镇</span> 
+		          <span class="active">全部</span> 
+		          <span>特色小镇</span>
+		        </div>
+		        <div id="province-town-ranking">
+		          <div class="province-town-single">
+		            <h4>Top 10</h4>
+		            <p>云南:211</p>
+		            <p>黑龙江:102</p>
+		            <p>湖南:102</p>
+		            <p>陕西:61</p>
+		            <p>北京:46</p>
+		            <p>重庆:42</p>
+		            <p>四川:31</p>
+		            <p>江西:21</p>
+		            <p>山东:21</p>
+		            <p>浙江:9</p>
+		          </div>
+		          <div class="province-town-single">
+		            <h4>Top 10</h4>
+		            <p>浙江:315</p>
+		            <p>云南:211</p>
+		            <p>湖南:105</p>
+		            <p>黑龙江:104</p>
+		            <p>海南:103</p>
+		            <p>陕西:68</p>
+		             <p>江苏:65</p>
+		            <p>北京:50</p>
+		            <p>重庆:42</p>
+		            <p>安徽:38</p>
+		          </div>
+		          <div class="province-town-single">
+		            <h4>Top 10</h4>
+		            <p>浙江:306</p>
+		            <p>海南:101</p>
+		            <p>江苏:57</p>
+		            <p>安徽:31</p>
+		            <p>河北:22</p>
+		            <p>广东:20</p>
+		            <p>甘肃:18</p>
+		            <p>山东:13</p>
+		            <p>天津:12</p>
+		            <p>辽宁:10</p>
+		          </div>
+		        </div>
+		      </li>
+
+		      <li id="public-sentiment" style="display: none;">
+		        <h4>景点热点排行</h4>
+		        <div id="public-sentiment-1">
+		        	本日柱状图
+		        </div>
+		        <div id="public-sentiment-2">
+		        	近一周柱状图
+		        </div>
+		        <div id="public-sentiment-3">
+		        	近一月柱状图
+		        </div>
+		        <div class="chart-explain-right">
+		          <h3>图表释义</h3>
+		          <p class="intro" style="display: none;"> 本区内景点热点</p>
+		          <img src="assets/big-data-explain-triangle.png" class="triangle" style="display: none;">
+		        </div>
+		        <div class="tab-change public-sentiment-tab" style="top:-480px;">
+		          <span class="active">本日</span> 
+		          <span>近一周</span> 
+		          <span>近一月</span>
+		        </div>
+		      </li>
+
+		      <li class="economy-li" style="display: none;">
+		        <h4>景点配套</h4>
+		        <div id="economy-list" class="chart" style="margin-top:30px;"></div>
+		        <div class="chart-explain-right">
+		          <h3>图表释义</h3>
+		          <p class="intro" style="display: none;">景点配套</p>
+		          <img src="assets/big-data-explain-triangle.png" class="triangle" style="display: none;">
+		        </div>
+		      </li>
+
+		      <li style="display: none;">
+		        <h4>交通</h4>
+		        <div id="town-build-scale" class="chart" style="-moz-user-select: none; background: transparent none repeat scroll 0% 0%;">
+		          <div>
+		            左侧柱状图  右侧点击饼状图
+		          </div>
+		        </div>
+		        <div class="chart-explain-right">
+		          <h3>图表释义</h3>
+		          <p class="intro" style="display: none;">交通</p>
+		          <img src="assets/big-data-explain-triangle.png" class="triangle" style="display: none;">
+		        </div>
+		      </li>
+
+		      <li style="display: none;">
+		        <h4>投资进度</h4>
+		        <div class="chart-explain-right">
+		          <h3>图表释义</h3>
+		          <p class="intro" style="display: none;">投资进度 柱状图  景点预计投资金额 与实际投资金额</p>
+		          <img src="assets/big-data-explain-triangle.png" class="triangle" style="display: none;">
+		        </div>
+		     </li>
+
+		     <li style="display: none;">
+		       <h4>招投标</h4>
+		         <div class="chart-explain-right">
+		           <h3>图表释义</h3>
+		           <p class="intro" style="display: none;">各项招标数据 鱼骨图</p>
+		         </div>
+		     </li>
+
+
+		     <li class="town-view-distribute" style="display: none;">
+		       <h4 class="view-title">餐饮娱乐项目 评论数据分析展示</h4>
+		       <div class="chart-explain-right">
+		         <h3>图表释义</h3>
+		         <p class="intro" style="display: none;">数据来源 美团，大众点评  利用算法分析</p>
+		         <img src="assets/big-data-explain-triangle.png" class="triangle" style="display: none;">
+		       </div>
+		     </li>
+
+		     <li style="display: none;">
+		       <h4>数据检索汇总</h4>
+		       <div class="chart-explain-right">
+		         <h3>图表释义</h3>
+		         <p class="intro" style="display: none;">原始数据查询</p>
+		         <img src="assets/big-data-explain-triangle.png" class="triangle" style="display: none;">
+		       </div>
+		     </li>
+		    </ul>
+		   </div>
+		 </div>
+		 <div id="user-login" class="reveal-modal"></div>
+		 <div id="user-register" class="reveal-modal"></div>
+		 <div id="user-login-out" class="reveal-modal"></div>
+		 <div id="user-validate" class="reveal-modal"></div>
+		 <div class="go-to-top" style="display: block;">
+		   <img src="assets/go-to-top.png">
+		   <img src="assets/go-to-top-hover.png" style="display:none">
+		 </div>
+	</div>
+	<script type="text/javascript" async="" defer="defer" src="assets/piwik.js"></script>
+	<script src="assets/jquery.js"></script>
+	<script src="assets/popwin.js"></script>
+	<script src="assets/jquery_002.js"></script>
+	<script src="assets/main.js"></script>
+	<script src="assets/echarts.js"></script>
+	<script src="assets/china.js"></script>
+	<script src="assets/echarts-wordcloud.js"></script>
+	<script src="assets/big-data-echarts.js"></script>
+	<script src="assets/transportation-access-echarts.js"></script>
+	<script src="assets/bigdatas-detail.js"></script>
+	<script>
+      $("li h3").hover(function(){
+        $("li p.intro").fadeIn();
+        $("li img.triangle").fadeIn();
+      },function(){
+        $("li p.intro").fadeOut();
+        $("li img.triangle").fadeOut();
+      })
+      $(".tab-change span").click(function() {
+        var index = $(this).index();
+        $(this).addClass("active").siblings("span").removeClass("active");
+	  })
+	</script>
+</body>
+</html>

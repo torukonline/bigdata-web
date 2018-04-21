@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title></title><style>
+       
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        #global-town-number {
+            width:1000px;
+            height:590px;
+        }
+        .chart-explain-right {
+            position:absolute;
+            right:10px;
+            top:0;
+            width:178px;
+        }
+        .chart-explain-right h3 {
+            margin-left:44px;
+            background:#35ac84;
+            color:#fff;
+            font-size:14px;
+            font-weight:400;
+            box-shadow:0px 2px 4px 0px #000000;
+            border-radius:75px;
+            width:90px;
+            height:32px;
+            line-height:32px;
+            text-align:center;
+            position:absolute;
+            left:0;
+            top:0;
+            z-index:99999;
+            cursor:pointer;
+        }
+        .chart-explain-right p {
+            box-shadow:0px 2px 4px 0px #000000;
+            border-radius:4px;
+            background:rgb(43,47,66);
+            width:178px;
+            position:absolute;
+            left:0;
+            top:44px;
+            padding:20px 15px 30px 15px;
+            text-align:justify;
+            font-size:12px;
+            line-height:1.5;
+            color:#fff;
+            display:none;
+            cursor:pointer;
+        }
+        .chart-explain-right img {
+            position:absolute;
+            right:60px;
+            top:39px;
+            display:none;
+        }
+        .chart-time {
+            display: block;
+            width: 150px;
+            height: 16px;
+            color: #fff;
+            position: absolute;
+            left: 50px;
+            top: 5px;
+            z-index: 9999;
+            font-weight:400;
+            font-size:12px;
+        }
+        .chart-time span {
+            font-size:12px;
+            height:12px;
+            display:block;
+            float:left;
+
+        }
+        h4 {
+            font-size:22px;
+            height:22px;
+            line-height:22px;
+            text-align:center;
+            color:#fff;
+            font-weight:400;
+        }
+    </style><meta name="fragment" content="!"><link rel="stylesheet" href="reveal.css"><link rel="shortcut icon" href="http://oawjg6eb7.bkt.clouddn.com/images/website-logo-2.png"></head><body><h4>全球特色小镇分布图</h4><div id="town-rate"></div><div id="global-town-number" _echarts_instance_="1523695583906" style="-moz-user-select: none;"></div><div class="chart-explain-right"><h3>图表释义</h3><p>收录国内外特色小镇,覆盖全球六大洲,19类特色产业</p><img src="big-data-explain-triangle.png"></div><b class="chart-time"><span>日期:</span> <span class="date">2018-4-13</span></b><script type="text/javascript" async="" defer="defer" src="piwik.js"></script><script src="global_world_chart_data/jquery_002.js">
+</script><script src="global_world_chart_data/jquery.js">
+</script><script src="global_world_chart_data/main.js">
+</script><script src="global_world_chart_data/echarts-all.js">
+</script><script src="global_world_chart_data/global-town-number.js">
+</script><script>
+    $(".chart-explain-right h3").hover(function() {
+                $(".chart-explain-right p").fadeIn();
+                $(".chart-explain-right img").fadeIn();
+            }, function() {
+                $(".chart-explain-right p").fadeOut();
+                $(".chart-explain-right img").fadeOut();
+            })
+    var time = (new Date).getTime() - 24 * 60 * 60 * 1000;
+    var yesterDay = new Date(time);
+    yesterDay = yesterDay.getFullYear() + "-" + ( yesterDay.getMonth() + 1) + "-" + yesterDay.getDate();
+    $(".chart-time .date").html(yesterDay);
+</script></body></html>
