@@ -10,10 +10,10 @@ switch (num) {
         // townRate();
         break;
     case 1:
-        // chinaTownNumber();
+        chinaTownNumber();
         break;
     case 2:
-        // felling();
+        felling();
         break;
     case 3:
         // economyIndustry();

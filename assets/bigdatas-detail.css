@@ -3,23 +3,6 @@ html,body{
   height:100%;
   background:#0D142E;
 }
-#public-sentiment-1{
-    width:500px;
-    height:450px;
-    float:left;
-    margin-top:50px;
-}
-#public-sentiment-2{
-    width:500px;
-    height:450px;
-    float:left;
-    margin-top:50px;
-}
-#public-sentiment-3{
-    width:1000px;
-    height:300px;
-
-}
 #transportation-access-2{
     width:500px;
     height:590px;

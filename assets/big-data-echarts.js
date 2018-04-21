@@ -1,216 +1,368 @@
+//小镇舆情  关键词柱状图
+//近一周
 function chinaTownNumber() {
     var e = echarts.init(document.getElementById("province-towns-amount"));
     option = {
-        title: {text: "", left: "center", top: "0", textStyle: {color: "#fff"}},
-        tooltip: {trigger: "item"},
-        legend: {orient: "vertical", left: "left", data: [""]},
-        visualMap: {
-            min: 0,
-            max: 150,
-            left: "50",
-            bottom: "50",
-            text: ["高", "低"],
-            calculable: !0,
-            textStyle: {color: "#fff"},
-            color: ["#42B38C", "#fff"]
+        xAxis: {
+            type: 'category',
+            data: ['碾子山', '旅游', '风景', '滑雪', '越野', '自行车', '马拉松', '石碑山', '蛇洞山', '雅鲁河'],
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            }
         },
-        toolbox: {
-            show: !1,
-            orient: "vertical",
-            left: "right",
-            top: "center",
-            feature: {dataView: {readOnly: !1}, restore: {}, saveAsImage: {}}
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            }
         },
         series: [{
-            name: "中国",
-            type: "map",
-            mapType: "china",
-            selectedMode: "multiple",
-            label: {
-                normal: {show: !0, textStyle: {color: "#666"}},
-                emphasis: {
-                    show: !0,
-                    itemStyle: {color: "#00c784", backgroundColor: "red"},
-                    textStyle: {color: "#fff"},
-                    color: "red",
-                    backgroundColor: "red"
+            data: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+            barWidth: 40,//柱图宽度
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var colorList = [
+                            ['#C33531', '#EFE42A', '#64BD3D', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589'],
+                            ['#483D8B', '#556B2F', '#F0FFF0', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589']
+                        ];
+                        return new echarts.graphic.LinearGradient(0, 0, 0, 1,
+
+                            [
+                                {offset: 0, color: colorList[0][params.dataIndex]},
+                                {offset: 1, color: colorList[1][params.dataIndex]}
+                            ]);
+                    },
+                    barBorderRadius: 5  //柱状角成椭圆形
                 }
             },
-            roma: !0,
-            itemStyle: {
-                normal: {areaColor: "#000", borderColor: "#ddd"},
-                emphasis: {areaColor: "#cfb01c", color: "#000"}
-            },
-            data: [{name: "浙江", value: 315}, {name: "云南", value: 211}, {name: "湖南", value: 105}, {
-                name: "黑龙江",
-                value: 104
-            }, {name: "海南", value: 103}, {name: "陕西", value: 68}, {name: "江苏", value: 65}, {
-                name: "北京",
-                value: 50
-            }, {name: "重庆", value: 42}, {name: "安徽", value: 38}, {name: "山东", value: 34}, {
-                name: "四川",
-                value: 31
-            }, {name: "广东", value: 28}, {name: "河北", value: 26}, {name: "江西", value: 21}, {
-                name: "甘肃",
-                value: 21
-            }, {name: "天津", value: 15}, {name: "辽宁", value: 14}, {name: "河南", value: 12}, {
-                name: "上海",
-                value: 11
-            }, {name: "福建", value: 8}, {name: "贵州", value: 7}, {name: "新疆", value: 6}, {
-                name: "山西",
-                value: 5
-            }, {name: "湖北", value: 5}, {name: "广西", value: 5}, {name: "宁夏", value: 3}, {
-                name: "内蒙古",
-                value: 3
-            }, {name: "吉林", value: 3}, {name: "西藏", value: 2}, {name: "青海", value: 2}, {
-                name: "台湾",
-                value: 0
-            }, {name: "香港", value: 0}, {name: "澳门", value: 0}]
-        }]
-    }, e.setOption(option)
-}
-function chinaTownNumberN() {
-    var e = echarts.init(document.getElementById("province-towns-amount"));
-    option = {
-        title: {text: "", left: "center", textStyle: {color: "#fff"}},
-        tooltip: {trigger: "item"},
-        legend: {orient: "vertical", left: "left", data: [""]},
-        visualMap: {
-            min: 0,
-            max: 150,
-            left: "50",
-            bottom: "50",
-            text: ["高", "低"],
-            calculable: !0,
-            textStyle: {color: "#fff"},
-            color: ["#42B38C", "#fff"]
+            type: 'bar'
+        }],
+        label: {
+            normal: {
+                show: true,
+                position: 'inside',
+                textStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#283b56'
+                }
+            }
         },
         toolbox: {
-            show: !1,
-            orient: "vertical",
-            left: "right",
-            top: "center",
-            feature: {dataView: {readOnly: !1}, restore: {}, saveAsImage: {}}
+            show: true,
+            feature: {
+                dataView: {readOnly: false},
+                saveAsImage: {}
+            }
         },
-        series: [{
-            name: "中国",
-            type: "map",
-            mapType: "china",
-            selectedMode: "multiple",
-            label: {
-                normal: {show: !0, textStyle: {color: "#666"}},
-                emphasis: {
-                    show: !0,
-                    itemStyle: {color: "#00c784", backgroundColor: "red"},
-                    textStyle: {color: "#fff"},
-                    color: "red",
-                    backgroundColor: "red"
-                }
-            },
-            roma: !0,
-            itemStyle: {
-                normal: {areaColor: "#000", borderColor: "#ddd"},
-                emphasis: {areaColor: "#cfb01c", color: "#000"}
-            },
-            data: [{name: "浙江", value: 306}, {name: "海南", value: 101}, {name: "江苏", value: 57}, {
-                name: "安徽",
-                value: 31
-            }, {name: "河北", value: 22}, {name: "广东", value: 20}, {name: "甘肃", value: 18}, {
-                name: "山东",
-                value: 13
-            }, {name: "天津", value: 12}, {name: "辽宁", value: 10}, {name: "上海", value: 9}, {
-                name: "河南",
-                value: 9
-            }, {name: "陕西", value: 7}, {name: "北京", value: 4}, {name: "福建", value: 3}, {
-                name: "湖南",
-                value: 3
-            }, {name: "黑龙江", value: 2}, {name: "山西", value: 1}, {name: "贵州", value: 1}, {
-                name: "新疆",
-                value: 1
-            }, {name: "内蒙古", value: 0}, {name: "吉林", value: 0}, {name: "江西", value: 0}, {
-                name: "湖北",
-                value: 0
-            }, {name: "广西", value: 0}, {name: "重庆", value: 0}, {name: "四川", value: 0}, {
-                name: "云南",
-                value: 0
-            }, {name: "西藏", value: 0}, {name: "青海", value: 0}, {name: "宁夏", value: 0}, {
-                name: "台湾",
-                value: 0
-            }, {name: "香港", value: 0}, {name: "澳门", value: 0}]
-        }]
     }, e.setOption(option)
 }
+//近一天
 function chinaTownNumberY() {
     var e = echarts.init(document.getElementById("province-towns-amount"));
     option = {
-        title: {text: "", left: "center", textStyle: {color: "#fff"}},
-        tooltip: {trigger: "item"},
-        legend: {orient: "vertical", left: "left", data: [""]},
-        visualMap: {
-            min: 0,
-            max: 150,
-            left: "50",
-            bottom: "50",
-            text: ["高", "低"],
-            calculable: !0,
-            textStyle: {color: "#fff"},
-            color: ["#42B38C", "#fff"]
+        xAxis: {
+            type: 'category',
+            data: ['碾子山', '旅游', '风景', '滑雪', '越野', '自行车', '马拉松', '石碑山', '蛇洞山', '雅鲁河']
         },
-        toolbox: {
-            show: !1,
-            orient: "vertical",
-            left: "right",
-            top: "center",
-            feature: {dataView: {readOnly: !1}, restore: {}, saveAsImage: {}}
+        yAxis: {
+            type: 'value'
         },
         series: [{
-            name: "中国",
-            type: "map",
-            mapType: "china",
-            selectedMode: "multiple",
-            label: {
-                normal: {show: !0, textStyle: {color: "#666"}},
-                emphasis: {
-                    show: !0,
-                    itemStyle: {color: "#00c784", backgroundColor: "red"},
-                    textStyle: {color: "#fff"},
-                    color: "red",
-                    backgroundColor: "red"
+            data: [1, 2, 3, 4, 5, 5, 4, 3, 2, 1],
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var colorList = [
+                            ['#C33531', '#EFE42A', '#64BD3D', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589'],
+                            ['#483D8B', '#556B2F', '#F0FFF0', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589']
+                        ];
+                        return new echarts.graphic.LinearGradient(0, 0, 0, 1,
+
+                            [
+                                {offset: 0, color: colorList[0][params.dataIndex]},
+                                {offset: 1, color: colorList[1][params.dataIndex]}
+                            ]);
+                    },
+                    barBorderRadius: 5  //柱状角成椭圆形
                 }
             },
-            roma: !0,
-            itemStyle: {
-                normal: {areaColor: "#000", borderColor: "#ddd"},
-                emphasis: {areaColor: "#cfb01c", color: "#000"}
-            },
-            data: [{name: "云南", value: 211}, {name: "黑龙江", value: 102}, {name: "湖南", value: 102}, {
-                name: "陕西",
-                value: 61
-            }, {name: "北京", value: 46}, {name: "重庆", value: 42}, {name: "四川", value: 31}, {
-                name: "江西",
-                value: 21
-            }, {name: "山东", value: 21}, {name: "浙江", value: 9}, {name: "江苏", value: 8}, {
-                name: "广东",
-                value: 8
-            }, {name: "安徽", value: 7}, {name: "贵州", value: 6}, {name: "山西", value: 5}, {
-                name: "福建",
-                value: 5
-            }, {name: "湖北", value: 5}, {name: "广西", value: 5}, {name: "新疆", value: 5}, {
-                name: "河北",
-                value: 4
-            }, {name: "辽宁", value: 4}, {name: "天津", value: 3}, {name: "内蒙古", value: 3}, {
-                name: "吉林",
-                value: 3
-            }, {name: "河南", value: 3}, {name: "甘肃", value: 3}, {name: "宁夏", value: 3}, {
-                name: "上海",
-                value: 2
-            }, {name: "海南", value: 2}, {name: "西藏", value: 2}, {name: "青海", value: 2}, {
-                name: "台湾",
-                value: 0
-            }, {name: "香港", value: 0}, {name: "澳门", value: 0}]
+            type: 'bar',
+            barWidth: 40//柱图宽度
         }]
     }, e.setOption(option)
 }
+////近一月
+function chinaTownNumberN() {
+    var e = echarts.init(document.getElementById("province-towns-amount"));
+    option = {
+        xAxis: {
+            type: 'category',
+            data: ['碾子山', '旅游', '风景', '滑雪', '越野', '自行车', '马拉松', '石碑山', '蛇洞山', '雅鲁河']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var colorList = [
+                            ['#C33531', '#EFE42A', '#64BD3D', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589'],
+                            ['#483D8B', '#556B2F', '#F0FFF0', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589']
+                        ];
+                        return new echarts.graphic.LinearGradient(0, 0, 0, 1,
+
+                            [
+                                {offset: 0, color: colorList[0][params.dataIndex]},
+                                {offset: 1, color: colorList[1][params.dataIndex]}
+                            ]);
+                    },
+                    barBorderRadius: 5  //柱状角成椭圆形
+                }
+            },
+            type: 'bar',
+            barWidth: 40//柱图宽度
+        }]
+    }, e.setOption(option)
+}
+
+//旅游热点 景点排行
+function felling() {
+    var e = echarts.init(document.getElementById("public-sentiment-1"));
+    option = {
+        yAxis: {
+            type: 'category',
+            data: ['奥越滑雪场', '世纪广场', '文化宫', '蛇洞山', '重山园', '雅鲁河'],
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        xAxis: {
+            type: 'value',
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        series: [{
+            data: [10, 9, 8, 7, 6, 5],
+            barWidth: 40,//柱图宽度
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var colorList = [
+                            ['#C33531', '#EFE42A', '#64BD3D', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589'],
+                            ['#483D8B', '#556B2F', '#F0FFF0', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589']
+                        ];
+                        return new echarts.graphic.LinearGradient(0, 0, 0, 1,
+
+                            [
+                                {offset: 0, color: colorList[0][params.dataIndex]},
+                                {offset: 1, color: colorList[1][params.dataIndex]}
+                            ]);
+                    },
+                    barBorderRadius: 5  //柱状角成椭圆形
+                }
+            },
+            type: 'bar'
+        }],
+        label: {
+            normal: {
+                show: true,
+                position: 'inside',
+                textStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#283b56'
+                }
+            }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: {readOnly: false},
+                saveAsImage: {}
+            }
+        },
+    }, e.setOption(option)
+}
+function fellingY() {
+    var e = echarts.init(document.getElementById("public-sentiment-1"));
+    option = {
+        yAxis: {
+            type: 'category',
+            data: ['奥越滑雪场', '世纪广场', '文化宫', '蛇洞山', '重山园', '雅鲁河'],
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        xAxis: {
+            type: 'value',
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        series: [{
+            data: [5, 6, 8, 7, 6, 5],
+            barWidth: 40,//柱图宽度
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var colorList = [
+                            ['#C33531', '#EFE42A', '#64BD3D', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589'],
+                            ['#483D8B', '#556B2F', '#F0FFF0', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589']
+                        ];
+                        return new echarts.graphic.LinearGradient(0, 0, 0, 1,
+
+                            [
+                                {offset: 0, color: colorList[0][params.dataIndex]},
+                                {offset: 1, color: colorList[1][params.dataIndex]}
+                            ]);
+                    },
+                    barBorderRadius: 5  //柱状角成椭圆形
+                }
+            },
+            type: 'bar'
+        }],
+        label: {
+            normal: {
+                show: true,
+                position: 'inside',
+                textStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#283b56'
+                }
+            }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: {readOnly: false},
+                saveAsImage: {}
+            }
+        },
+    }, e.setOption(option)
+}
+function fellingN() {
+    var e = echarts.init(document.getElementById("public-sentiment-1"));
+    option = {
+        yAxis: {
+            type: 'category',
+            data: ['奥越滑雪场', '世纪广场', '文化宫', '蛇洞山', '重山园', '雅鲁河'],
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        xAxis: {
+            type: 'value',
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        series: [{
+            data: [5, 9, 8, 7, 6, 5],
+            barWidth: 40,//柱图宽度
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var colorList = [
+                            ['#C33531', '#EFE42A', '#64BD3D', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589'],
+                            ['#483D8B', '#556B2F', '#F0FFF0', '#EE9201', '#29AAE3',
+                                '#B74AE5', '#0AAF9F', '#E89589', '#0AAF9F', '#E89589']
+                        ];
+                        return new echarts.graphic.LinearGradient(0, 0, 0, 1,
+
+                            [
+                                {offset: 0, color: colorList[0][params.dataIndex]},
+                                {offset: 1, color: colorList[1][params.dataIndex]}
+                            ]);
+                    },
+                    barBorderRadius: 5  //柱状角成椭圆形
+                }
+            },
+            type: 'bar'
+        }],
+        label: {
+            normal: {
+                show: true,
+                position: 'inside',
+                textStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#283b56'
+                }
+            }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: {readOnly: false},
+                saveAsImage: {}
+            }
+        },
+    }, e.setOption(option)
+}
+
+
+
 function scale() {
     var e = echarts.init(document.getElementById("town-build-scale"));
     option = {
@@ -1206,532 +1358,6 @@ function invest_contrast() {
                 itemStyle: {normal: {color: "#2b5cee"}}
             }]
         }, e.setOption(option)
-    })
-}
-function felling() {
-    function e(e) {
-        $.get(encodeURI(requestUrl + "big-data/get-towns-history-opinion?name=" + e), function (e) {
-            function t(e) {
-                i = r[m], o.push(i), l.push(n[m]), e && (o.shift(), l.shift())
-            }
-
-            function a() {
-                t(!0), m < r.length - 1 ? m++ : m = 0
-            }
-
-            getStatus(e), myChart3 = echarts.init(document.getElementById("public-sentiment-3")), option = null;
-            var o = [], n = [], r = [], l = [], i = [];
-            if (200 == e.code)for (var s = 0; s < e.result.length; s++)r.push(e.result[s].ondate), n.push(e.result[s].value / 1e4);
-            for (var m = 0, m = 0; m <= r.length / 2; m++)t();
-            option = {
-                xAxis: {
-                    type: "category",
-                    name: "日期",
-                    boundaryGap: !1,
-                    data: l,
-                    axisLine: {lineStyle: {color: "#a7a7a7"}}
-                },
-                yAxis: {
-                    boundaryGap: [0, "50%"],
-                    type: "value",
-                    name: "单位：万条",
-                    axisLine: {lineStyle: {color: "#a7a7a7"}}
-                },
-                series: [{
-                    name: "成交",
-                    type: "line",
-                    smooth: !0,
-                    symbol: "none",
-                    stack: "a",
-                    areaStyle: {normal: {color: "#009a60"}},
-                    lineStyle: {normal: {color: "#217653"}},
-                    itemStyle: {borderColor: "yellow"},
-                    data: l
-                }]
-            }, time = setInterval(function () {
-                myChart3.setOption({xAxis: {data: o}, series: [{name: "成交", data: l}]}), a()
-            }, 1e3), option && "object" == typeof option && myChart3.setOption(option, !0)
-        })
-    }
-
-    clearInterval(time);
-    var t = echarts.init(document.getElementById("public-sentiment-1"));
-    myChart2 = echarts.init(document.getElementById("public-sentiment-2")), window.towns2 = [], window.value2 = [];
-    var a, o = [], n = [];
-    window.colorList2, colorList2 = ["#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#009a60"];
-    var r = function () {
-        $.get(requestUrl + "big-data/get-all-towns-opinion", function (r) {
-            getStatus(r), e(r.result[0].name);
-            var l = r.result;
-            a = l[0].name;
-            for (var i = 0; i < 10; i++)towns2.unshift(r.result[i].name), value2.unshift(r.result[i].value / 1e4);
-            for (var i = 0; i < l.length; i++) {
-                o.push({name: l[i].name, value: l[i].value});
-                var s = l[i].xy.split(",");
-                n.push({
-                    name: l[i].name,
-                    value: [parseFloat(s[0]), parseFloat(s[1]), parseFloat(l[i].value / 1e4) + "万"]
-                })
-            }
-            option2 = {
-                width: 400,
-                title: {
-                    x: "center", y: "top", textStyle: {
-                        color: "rgba(0,0,0,0.8)", fontFamily: "微软雅黑",
-                        fontSize: 18, fontWeight: "bolder"
-                    }
-                },
-                tooltip: {trigger: "axis", axisPointer: {type: "shadow"}},
-                legend: {x: "left", y: 20, data: ["舆情搜索量（单位：条）"], textStyle: {color: "#a7a7a7"}},
-                grid: {left: "3%", right: "4%", bottom: "3%", containLabel: !0},
-                xAxis: {
-                    type: "value",
-                    name: "单位：万条",
-                    nameGap: 16,
-                    nameTextStyle: {color: "#a7a7a7", fontSize: 14},
-                    axisLine: {lineStyle: {color: "#a7a7a7"}}
-                },
-                yAxis: {type: "category", data: [], axisLine: {lineStyle: {color: "#a7a7a7"}}},
-                series: [{
-                    name: "舆情搜索量（单位：万条）",
-                    type: "bar",
-                    stack: "总量",
-                    label: {normal: {show: !0, position: "insideRight"}},
-                    roam: !1,
-                    tooltip: {
-                        trigger: "item", formatter: function (e) {
-                        }
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: function (e) {
-                                return colorList2[e.dataIndex]
-                            }
-                        }
-                    },
-                    data: []
-                }]
-            }, option = {
-                width: 400,
-                title: {text: "", y: "10", left: "center", textStyle: {color: "#fff"}},
-                tooltip: {
-                    trigger: "item", textStyle: {fontSize: 10}, formatter: function (e) {
-                        var t = e.value.toString().split(",");
-                        return "  " + e.name + "舆情搜索量: " + t[2] + "条"
-                    }
-                },
-                legend: {
-                    orient: "vertical",
-                    y: "bottom",
-                    x: "right",
-                    data: [""],
-                    top: 0,
-                    textStyle: {color: "rgba(255,255,255,0.5)"}
-                },
-                geo: {
-                    width: 450,
-                    left: 10,
-                    map: "china",
-                    label: {emphasis: {show: !1}},
-                    roam: !1,
-                    itemStyle: {normal: {areaColor: "#152451", borderColor: "#111"}, emphasis: {areaColor: "#1a3788"}},
-                    backgroundColor: "#152451"
-                },
-                series: [{
-                    name: "舆情搜索量",
-                    type: "scatter",
-                    coordinateSystem: "geo",
-                    data: n,
-                    symbolSize: function (e) {
-                        return 5
-                    },
-                    label: {normal: {formatter: "{b}", position: "right", show: !1}, emphasis: {show: !0}},
-                    itemStyle: {normal: {color: "#2D8C6A"}}
-                }, {
-                    name: "舆情搜索量",
-                    type: "effectScatter",
-                    coordinateSystem: "geo",
-                    data: n.slice(0, 10),
-                    symbolSize: function (e) {
-                        return 20
-                    },
-                    showEffectOn: "emphasis",
-                    rippleEffect: {brushType: "stroke"},
-                    hoverAnimation: !0,
-                    label: {normal: {formatter: "{b}", position: "right", show: !0}},
-                    itemStyle: {normal: {color: "#31B489", shadowBlur: 10, shadowColor: ""}},
-                    zlevel: 1
-                }]
-            }, t.setOption(option), myChart2.setOption(option2), myChart2.setOption({
-                yAxis: {
-                    type: "category",
-                    data: towns2
-                }, series: [{name: "销量", data: value2}]
-            })
-        })
-    };
-    r(), myChart2.on("click", function (t) {
-        clearInterval(time), e(t.name), colorList2 = ["#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5"], colorList2[t.dataIndex] = "#009a60", myChart2.setOption({
-            series: [{
-                itemStyle: {
-                    normal: {
-                        color: function (e) {
-                            return colorList2[e.dataIndex]
-                        }
-                    }
-                }
-            }]
-        })
-    })
-}
-function fellingY() {
-    function e(e) {
-        $.get(encodeURI(requestUrl + "big-data/get-towns-history-opinion?name=" + e), function (e) {
-            function t(e) {
-                i = r[m], o.push(i), l.push(n[m]), e && (o.shift(), l.shift())
-            }
-
-            function a() {
-                t(!0), m < r.length - 1 ? m++ : m = 0
-            }
-
-            getStatus(e), myChart3 = echarts.init(document.getElementById("public-sentiment-3")), option = null;
-            var o = [], n = [], r = [], l = [], i = [];
-            if (200 == e.code)for (var s = 0; s < e.result.length; s++)r.push(e.result[s].ondate), n.push(e.result[s].value / 1e4);
-            for (var m = 0, m = 0; m <= r.length / 2; m++)t();
-            option = {
-                xAxis: {
-                    type: "category",
-                    name: "日期",
-                    boundaryGap: !1,
-                    data: l,
-                    axisLine: {lineStyle: {color: "#a7a7a7"}}
-                },
-                yAxis: {
-                    boundaryGap: [0, "50%"],
-                    type: "value",
-                    name: "单位：万条",
-                    axisLine: {lineStyle: {color: "#a7a7a7"}}
-                },
-                series: [{
-                    name: "成交",
-                    type: "line",
-                    smooth: !0,
-                    symbol: "none",
-                    stack: "a",
-                    areaStyle: {normal: {color: "#009a60"}},
-                    lineStyle: {normal: {color: "#217653"}},
-                    itemStyle: {borderColor: "yellow"},
-                    data: l
-                }]
-            }, time = setInterval(function () {
-                myChart3.setOption({xAxis: {data: o}, series: [{name: "成交", data: l}]}), a()
-            }, 1e3), option && "object" == typeof option && myChart3.setOption(option, !0)
-        })
-    }
-
-    clearInterval(time);
-    var t = echarts.init(document.getElementById("public-sentiment-1"));
-    myChart2 = echarts.init(document.getElementById("public-sentiment-2")), window.towns2 = [], window.value2 = [];
-    var a, o = [], n = [];
-    colorList2 = ["#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#009a60"];
-    var r = function () {
-        $.get(requestUrl + "big-data/get-all-towns-opinion?type=2", function (r) {
-            getStatus(r), e(r.result[0].name);
-            var l = r.result;
-            a = l[0].name;
-            for (var i = 0; i < 10; i++)towns2.unshift(r.result[i].name), value2.unshift(r.result[i].value / 1e4);
-            for (var i = 0; i < l.length; i++) {
-                o.push({name: l[i].name, value: l[i].value});
-                var s = l[i].xy.split(",");
-                n.push({
-                    name: l[i].name,
-                    value: [parseFloat(s[0]), parseFloat(s[1]), parseFloat(l[i].value / 1e4) + "万"]
-                })
-            }
-            option2 = {
-                width: 400,
-                title: {
-                    x: "center",
-                    y: "top",
-                    textStyle: {color: "rgba(0,0,0,0.8)", fontFamily: "微软雅黑", fontSize: 18, fontWeight: "bolder"}
-                },
-                tooltip: {trigger: "axis", axisPointer: {type: "shadow"}},
-                legend: {x: "left", y: 20, data: ["舆情搜索量（单位：条）"], textStyle: {color: "#a7a7a7"}},
-                grid: {left: "3%", right: "4%", bottom: "3%", containLabel: !0},
-                xAxis: {
-                    type: "value",
-                    name: "单位：万条",
-                    nameGap: 16,
-                    nameTextStyle: {color: "#a7a7a7", fontSize: 14},
-                    axisLine: {lineStyle: {color: "#a7a7a7"}}
-                },
-                yAxis: {type: "category", data: [], axisLine: {lineStyle: {color: "#a7a7a7"}}},
-                series: [{
-                    name: "舆情搜索量（单位：万条）",
-                    type: "bar",
-                    stack: "总量",
-                    label: {normal: {show: !0, position: "insideRight"}},
-                    roam: !1,
-                    tooltip: {
-                        trigger: "item", formatter: function (e) {
-                        }
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: function (e) {
-                                return colorList2[e.dataIndex]
-                            }
-                        }
-                    },
-                    data: []
-                }]
-            }, option = {
-                width: 400,
-                title: {text: "", y: "10", left: "center", textStyle: {color: "#fff"}},
-                tooltip: {
-                    trigger: "item", textStyle: {fontSize: 10}, formatter: function (e) {
-                        var t = e.value.toString().split(",");
-                        return "  " + e.name + "舆情搜索量: " + t[2] + "条"
-                    }
-                },
-                legend: {
-                    orient: "vertical",
-                    y: "bottom",
-                    x: "right",
-                    data: [""],
-                    top: 0,
-                    textStyle: {color: "rgba(255,255,255,0.5)"}
-                },
-                geo: {
-                    width: 450,
-                    left: 10,
-                    map: "china",
-                    label: {emphasis: {show: !1}},
-                    roam: !1,
-                    itemStyle: {normal: {areaColor: "#152451", borderColor: "#111"}, emphasis: {areaColor: "#1a3788"}},
-                    backgroundColor: "#152451"
-                },
-                series: [{
-                    name: "舆情搜索量",
-                    type: "scatter",
-                    coordinateSystem: "geo",
-                    data: n,
-                    symbolSize: function (e) {
-                        return 5
-                    },
-                    label: {normal: {formatter: "{b}", position: "right", show: !1}, emphasis: {show: !0}},
-                    itemStyle: {normal: {color: "#2D8C6A"}}
-                }, {
-                    name: "舆情搜索量",
-                    type: "effectScatter",
-                    coordinateSystem: "geo",
-                    data: n.slice(0, 10),
-                    symbolSize: function (e) {
-                        return 20
-                    },
-                    showEffectOn: "emphasis",
-                    rippleEffect: {brushType: "stroke"},
-                    hoverAnimation: !0,
-                    label: {normal: {formatter: "{b}", position: "right", show: !0}},
-                    itemStyle: {normal: {color: "#31B489", shadowBlur: 10, shadowColor: ""}},
-                    zlevel: 1
-                }]
-            }, t.setOption(option), myChart2.setOption(option2), myChart2.setOption({
-                yAxis: {
-                    type: "category",
-                    data: towns2
-                }, series: [{name: "销量", data: value2}]
-            })
-        })
-    };
-    r(), myChart2.on("click", function (t) {
-        clearInterval(time), e(t.name), colorList2 = ["#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5"], colorList2[t.dataIndex] = "#009a60", myChart2.setOption({
-            series: [{
-                itemStyle: {
-                    normal: {
-                        color: function (e) {
-                            return colorList2[e.dataIndex]
-                        }
-                    }
-                }
-            }]
-        })
-    })
-}
-function fellingN() {
-    function e(e) {
-        $.get(encodeURI(requestUrl + "big-data/get-towns-history-opinion?name=" + e), function (e) {
-            function t(e) {
-                i = r[m], o.push(i), l.push(n[m]), e && (o.shift(), l.shift())
-            }
-
-            function a() {
-                t(!0), m < r.length - 1 ? m++ : m = 0
-            }
-
-            getStatus(e), myChart3 = echarts.init(document.getElementById("public-sentiment-3")), option = null;
-            var o = [], n = [], r = [], l = [], i = [];
-            if (200 == e.code)for (var s = 0; s < e.result.length; s++)r.push(e.result[s].ondate), n.push(e.result[s].value / 1e4);
-            for (var m = 0, m = 0; m <= r.length / 2; m++)t();
-            option = {
-                xAxis: {
-                    type: "category",
-                    name: "日期",
-                    boundaryGap: !1,
-                    data: l,
-                    axisLine: {lineStyle: {color: "#a7a7a7"}}
-                },
-                yAxis: {
-                    boundaryGap: [0, "50%"],
-                    type: "value",
-                    name: "单位：万条",
-                    axisLine: {lineStyle: {color: "#a7a7a7"}}
-                },
-                series: [{
-                    name: "成交",
-                    type: "line",
-                    smooth: !0,
-                    symbol: "none",
-                    stack: "a",
-                    areaStyle: {normal: {color: "#009a60"}},
-                    lineStyle: {normal: {color: "#217653"}},
-                    itemStyle: {borderColor: "yellow"},
-                    data: l
-                }]
-            }, time = setInterval(function () {
-                myChart3.setOption({xAxis: {data: o}, series: [{name: "成交", data: l}]}), a()
-            }, 1e3), option && "object" == typeof option && myChart3.setOption(option, !0)
-        })
-    }
-
-    clearInterval(time);
-    var t = echarts.init(document.getElementById("public-sentiment-1"));
-    myChart2 = echarts.init(document.getElementById("public-sentiment-2")), window.towns2 = [], window.value2 = [];
-    var a, o = [], n = [];
-    colorList2 = ["#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#009a60"];
-    var r = function () {
-        $.get(requestUrl + "big-data/get-all-towns-opinion?type=1", function (r) {
-            getStatus(r), e(r.result[0].name);
-            var l = r.result;
-            a = l[0].name;
-            for (var i = 0; i < 10; i++)towns2.unshift(r.result[i].name), value2.unshift(r.result[i].value / 1e4);
-            for (var i = 0; i < l.length; i++) {
-                o.push({name: l[i].name, value: l[i].value});
-                var s = l[i].xy.split(",");
-                n.push({
-                    name: l[i].name,
-                    value: [parseFloat(s[0]), parseFloat(s[1]), parseFloat(l[i].value / 1e4) + "万"]
-                })
-            }
-            option2 = {
-                width: 400,
-                title: {
-                    x: "center",
-                    y: "top",
-                    textStyle: {color: "rgba(0,0,0,0.8)", fontFamily: "微软雅黑", fontSize: 18, fontWeight: "bolder"}
-                },
-                tooltip: {trigger: "axis", axisPointer: {type: "shadow"}},
-                legend: {x: "left", y: 20, data: ["舆情搜索量（单位：条）"], textStyle: {color: "#a7a7a7"}},
-                grid: {left: "3%", right: "4%", bottom: "3%", containLabel: !0},
-                xAxis: {
-                    type: "value",
-                    name: "单位：万条",
-                    nameGap: 16,
-                    nameTextStyle: {color: "#a7a7a7", fontSize: 14},
-                    axisLine: {lineStyle: {color: "#a7a7a7"}}
-                },
-                yAxis: {type: "category", data: [], axisLine: {lineStyle: {color: "#a7a7a7"}}},
-                series: [{
-                    name: "舆情搜索量（单位：万条）",
-                    type: "bar",
-                    stack: "总量",
-                    label: {normal: {show: !0, position: "insideRight"}},
-                    roam: !1,
-                    tooltip: {
-                        trigger: "item", formatter: function (e) {
-                        }
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: function (e) {
-                                return colorList2[e.dataIndex]
-                            }
-                        }
-                    },
-                    data: []
-                }]
-            }, option = {
-                width: 400,
-                title: {text: "", y: "10", left: "center", textStyle: {color: "#fff"}},
-                tooltip: {
-                    trigger: "item", textStyle: {fontSize: 10}, formatter: function (e) {
-                        var t = e.value.toString().split(",");
-                        return "  " + e.name + "舆情搜索量: " + t[2] + "条"
-                    }
-                },
-                legend: {
-                    orient: "vertical",
-                    y: "bottom",
-                    x: "right",
-                    data: [""],
-                    top: 0,
-                    textStyle: {color: "rgba(255,255,255,0.5)"}
-                },
-                geo: {
-                    width: 450,
-                    left: 10,
-                    map: "china",
-                    label: {emphasis: {show: !1}},
-                    roam: !1,
-                    itemStyle: {normal: {areaColor: "#152451", borderColor: "#111"}, emphasis: {areaColor: "#1a3788"}},
-                    backgroundColor: "#152451"
-                },
-                series: [{
-                    name: "舆情搜索量",
-                    type: "scatter",
-                    coordinateSystem: "geo",
-                    data: n,
-                    symbolSize: function (e) {
-                        return 5
-                    },
-                    label: {normal: {formatter: "{b}", position: "right", show: !1}, emphasis: {show: !0}},
-                    itemStyle: {normal: {color: "#2D8C6A"}}
-                }, {
-                    name: "舆情搜索量",
-                    type: "effectScatter",
-                    coordinateSystem: "geo",
-                    data: n.slice(0, 10),
-                    symbolSize: function (e) {
-                        return 20
-                    },
-                    showEffectOn: "emphasis",
-                    rippleEffect: {brushType: "stroke"},
-                    hoverAnimation: !0,
-                    label: {normal: {formatter: "{b}", position: "right", show: !0}},
-                    itemStyle: {normal: {color: "#31B489", shadowBlur: 10, shadowColor: ""}},
-                    zlevel: 1
-                }]
-            }, t.setOption(option), myChart2.setOption(option2), myChart2.setOption({
-                yAxis: {
-                    type: "category",
-                    data: towns2
-                }, series: [{name: "销量", data: value2}]
-            })
-        })
-    };
-    r(), window.colorList2, myChart2.on("click", function (t) {
-        clearInterval(time), e(t.name), colorList2 = ["#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5", "#62C3A5"], colorList2[t.dataIndex] = "#009a60", myChart2.setOption({
-            series: [{
-                itemStyle: {
-                    normal: {
-                        color: function (e) {
-                            return colorList2[e.dataIndex]
-                        }
-                    }
-                }
-            }]
-        })
     })
 }
 function getTownViewDistribute() {

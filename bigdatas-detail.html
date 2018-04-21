@@ -72,34 +72,31 @@
 		      </li>
 
 		      <li style="display: none;">
-		        <h4>本地舆情</h4>
+				  <h4>关键词舆情展示</h4>
 		        <div id="province-towns-amount" class="chart chart-tab"></div>
 		        <div class="tab-change province-towns-amount-tab">
 					<span>近一天</span>
 					<span class="active">近一周</span>
 					<span>近一月</span>
 		        </div>
+				  <div class="chart-explain-right">
+					  <h3>图表释义</h3>
+					  <p class="intro" style="display: none;">不同时间维度下 被搜索的关键词词数top10</p>
+					  <img src="assets/big-data-explain-triangle.png" class="triangle" style="display: none;">
+				  </div>
 		      </li>
 
 		      <li id="public-sentiment" style="display: none;">
 		        <h4>景点热点排行</h4>
-		        <div id="public-sentiment-1">
-		        	本日柱状图
-		        </div>
-		        <div id="public-sentiment-2">
-		        	近一周柱状图
-		        </div>
-		        <div id="public-sentiment-3">
-		        	近一月柱状图
-		        </div>
+				  <div id="public-sentiment-1" class="chart chart-tab"></div>
 		        <div class="chart-explain-right">
 		          <h3>图表释义</h3>
-		          <p class="intro" style="display: none;"> 本区内景点热点</p>
+					<p class="intro" style="display: none;"> 不同时间维度内,统计的本区内景点旅游人次</p>
 		          <img src="assets/big-data-explain-triangle.png" class="triangle" style="display: none;">
 		        </div>
-		        <div class="tab-change public-sentiment-tab" style="top:-480px;">
-		          <span class="active">本日</span> 
-		          <span>近一周</span> 
+				  <div class="tab-change public-sentiment-tab">
+					  <span>本日</span>
+					  <span class="active">近一周</span>
 		          <span>近一月</span>
 		        </div>
 		      </li>
@@ -179,7 +176,8 @@
 	<script src="common/jquery.js"></script>
 	<script src="common/popwin.js"></script>
 	<script src="common/main.js"></script>
-	<script src="assets/echarts.js"></script>
+	<!--<script src="assets/echarts.js"></script>-->
+	<script src="common/echarts.min.js"></script>
 	<script src="assets/china.js"></script>
 	<script src="assets/echarts-wordcloud.js"></script>
 	<script src="assets/big-data-echarts.js"></script>
