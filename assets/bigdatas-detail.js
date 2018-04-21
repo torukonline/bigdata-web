@@ -7,6 +7,7 @@ yesterDay = yesterDay.getFullYear() + "-" + (yesterDay.getMonth() + 1) + "-" + y
 var num = GetQueryString("id") - 1;
 switch (num) {
     case 0:
+        townLayout()
         // townRate();
         break;
     case 1:
@@ -49,7 +50,8 @@ $(".big-data-detail .content-left li").eq(num).addClass("active").siblings("li")
     var e = $(this).index();
     switch ($(this).addClass("active").siblings("li").removeClass("active"), $(".content-right li").hide(), $(".content-right li").eq(e).show(), e++, window.history.replaceState(null, "", "bigdatas-detail.html?id=" + e), e - 1) {
         case 0:
-            townRate();
+            townLayout()
+            // townRate();
             break;
         case 1:
             chinaTownNumber(), $(".province-towns-amount-tab span").eq(1).addClass("active").siblings("span").removeClass("active"), $("#province-town-ranking .province-town-single").eq(1).show().siblings(".province-town-single").hide();

@@ -1,3 +1,143 @@
+function townLayout() {
+
+    $.getJSON("nzs.json", function (data) {
+        echarts.registerMap('HK', data);
+
+        var e = echarts.init(document.getElementById("province-towns-amount"));
+
+        var geoCoordMap = {
+            "碾子山区政府": [122.894136, 47.523318],
+            "奥悦碾子山国际滑雪场": [122.853716, 47.548165],
+            "碾子山站": [122.889829, 47.521966],
+            "客运站": [122.903747, 47.516209],
+            "金长城遗址公园": [122.872062, 47.684459],
+            "重山园": [122.893449, 47.528754],
+            "世纪广场": [122.89816, 47.52293],
+            "雅鲁河": [122.891787, 47.490317],
+            "蛇仙洞": [122.860041, 47.56056],
+            "军工旅游区": [122.896275, 47.524308]
+        };
+
+        var convertData = function (data) {
+            var res = [];
+            for (var i = 0; i < data.length; i++) {
+                var geoCoord = geoCoordMap[data[i].name];
+                if (geoCoord) {
+                    res.push({
+                        name: data[i].name,
+                        value: geoCoord.concat(data[i].value)
+                    });
+                }
+            }
+
+            for (var i = 0; i < res.length; i++) {
+                console.log("res[" + i + "]===" + res[i].name);
+                console.log("res[" + i + "]===" + res[i].value);
+            }
+            return res;
+        };
+
+
+        option = {
+
+            backgroundColor: '#404a59',
+            // title: {
+            //     text: '碾子山景点分布图',
+            //     x:'center',
+            //     textStyle: {
+            //         color: '#fff'
+            //     }
+            // },
+            tooltip: {
+                trigger: 'item',
+                formatter: function (params) {
+                    return params.name + ' : ' + params.value[2];
+                }
+            },
+            legend: {
+                orient: 'vertical',
+                y: 'bottom',
+                x: 'right',
+                data: ['pm2.5'],
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            visualMap: {
+                min: 0,
+                max: 200,
+                calculable: true,
+                inRange: {
+                    color: ['#50a3ba', '#eac736', '#d94e5d']
+                },
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            geo: {
+                map: 'HK',
+                zoom: 1.16,
+                roam: true,
+                // center:[122.93303,47.58376],
+                label: {
+                    emphasis: {
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        areaColor: '#323c48',
+                        borderColor: '#111'
+                    },
+                    emphasis: {
+                        areaColor: '#2a333d'
+                    }
+                }
+            },
+            series: [
+                {
+
+                    // zoom:1.5,
+                    name: '香港18区人口密度',
+
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    itemStyle: {
+                        normal: {label: {show: true}},
+                        emphasis: {label: {show: true}}
+                    },
+                    data: convertData([
+                        {name: "碾子山区政府", value: 99},
+                        {name: "奥悦碾子山国际滑雪场", value: '奥悦碾子山国际滑雪场'},
+                        {name: "金长城遗址公园", value: 10},
+                        {name: "碾子山站", value: 30},
+                        {name: "客运站", value: 50},
+                        {name: "重山园", value: 70},
+                        {name: "世纪广场", value: 90},
+                        {name: "雅鲁河", value: 110},
+                        {name: "蛇仙洞", value: 130},
+                        {name: "军工旅游区", value: 150}
+                    ]),
+                    symbolSize: 10,
+                    label: {
+                        normal: {
+                            show: true,
+                            position: [10, 10],
+                            formatter: function (convertData) {
+                                console.log(convertData.name);
+                                return convertData.name;
+                            }
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    }
+                }
+            ]
+        }, e.setOption(option)
+    })
+
+}
 function chinaTownNumber() {
     var e = echarts.init(document.getElementById("province-towns-amount"));
     option = {
